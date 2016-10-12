@@ -1,0 +1,25 @@
+node {
+    stage 'Checkout'
+
+    git 'https://github.com/helpermethod/spielplatz'
+
+    stage 'Start Test DB'
+
+    stage 'Build'
+
+    dir('api-gateway') {
+        sh "docker build -t spielplatz-gateway:$BUILD_NUMBER ."
+    }
+
+    sh "docker tag spielplatz-gateway:$BUILD_NUMBER hub.predic8.de/spielplatz-gateway:$BUILD_NUMBER"
+    sh "docker push hub.predic8.de/spielplatz-gateway:$BUILD_NUMBER"
+
+    stage 'Deploy'
+
+    sh """
+      set +e
+      docker rm -f spielplatz-gateway-container
+      set -e
+      docker run -d --restart=unless-stopped -p 80:80 --name spielplatz-gateway-container hub.predic8.de/spielplatz-gateway:$BUILD_NUMBER
+    """
+}
