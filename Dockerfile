@@ -1,3 +1,3 @@
-FROM hub.predic8.de/p8/java
+FROM anapsix/alpine-java:jdk
 ADD target/*.jar /app/app.jar
 CMD java -jar /app/app.jar
