@@ -34,13 +34,19 @@ node {
     def prodIp = getIp 'postgres-spielplatz-prod'
     prodIp = prodIp - '\n'
 
+    stage 'Upload Artifact'
+
+    withEnv(["PATH+MAVEN=${tool 'mvn3'}/bin"]) {
+        sh 'mvn jar:jar deploy:deploy'
+    }
+
     stage 'Deploy'
 
     sh """
       set +e
       docker rm -f spielplatz-container
       set -e
-      docker run -d -p 80:8080 -e DB_IP=$prodIp --name spielplatz-container hub.predic8.de/spielplatz:$BUILD_NUMBER
+      docker run -d --restart=unless-stopped -p 80:8080 -e DB_IP=$prodIp --name spielplatz-container hub.predic8.de/spielplatz:$BUILD_NUMBER
     """
 }
 
