@@ -28,6 +28,9 @@ node {
         sh "docker build -t spielplatz:$BUILD_NUMBER ."
     }
 
+    sh "docker tag spielplatz:$BUILD_NUMBER hub.predic8.de/spielplatz:$BUILD_NUMBER"
+    sh "docker push hub.predic8.de/spielplatz:$BUILD_NUMBER"
+
     def prodIp = getIp 'postgres-spielplatz-prod'
     prodIp = prodIp - '\n'
 
