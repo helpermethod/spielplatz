@@ -47,7 +47,7 @@ node {
       set +e
       docker rm -f spielplatz-container
       set -e
-      docker run -d --restart=unless-stopped -p 80:8080 -e DB_IP=$prodIp --name spielplatz-container hub.predic8.de/spielplatz:$BUILD_NUMBER
+      docker run -d --restart=unless-stopped -p 81:8080 -e DB_IP=$prodIp --name spielplatz-container hub.predic8.de/spielplatz:$BUILD_NUMBER
     """
 }
 
