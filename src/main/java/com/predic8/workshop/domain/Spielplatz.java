@@ -17,6 +17,9 @@ public class Spielplatz {
 	private Integer locationX;
 	private Integer locationY;
 
+	private Spielplatz() {
+	}
+
 	public Spielplatz(String name) {
 		this.name = name;
 	}
