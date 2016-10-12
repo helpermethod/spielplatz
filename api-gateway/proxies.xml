@@ -30,7 +30,7 @@
         <!-- Displays a list of all configured proxies. -->
         <serviceProxy port="80">
             <path>/spielplatz</path>
-            <target host="172.17.0.1" port="81"/>
+            <target host="172.17.0.1" port="81" adjustHostHeader="false" />
         </serviceProxy>
         <serviceProxy port="80">
             <target host="172.17.0.1" port="82"/>
