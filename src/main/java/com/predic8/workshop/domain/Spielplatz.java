@@ -1,6 +1,5 @@
 package com.predic8.workshop.domain;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -17,6 +16,10 @@ public class Spielplatz {
 	private String name;
 	private Integer locationX;
 	private Integer locationY;
+
+	public Spielplatz(String name) {
+		this.name = name;
+	}
 
 	public String getName() {
 		return name;
