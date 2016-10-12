@@ -34,12 +34,13 @@ node {
     def prodIp = getIp 'postgres-spielplatz-prod'
     prodIp = prodIp - '\n'
 
+/*
     stage 'Upload Artifact'
 
     withEnv(["PATH+MAVEN=${tool 'mvn3'}/bin"]) {
         sh 'mvn jar:jar deploy:deploy'
     }
-
+*/
     stage 'Deploy'
 
     sh """
