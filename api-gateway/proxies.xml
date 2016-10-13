@@ -27,7 +27,6 @@
 	                    http://membrane-soa.org/proxies/1/ http://membrane-soa.org/schemas/proxies-1.xsd">
 
     <router>
-        <!-- Displays a list of all configured proxies. -->
         <serviceProxy port="80">
             <path>/spielplatz</path>
             <target host="172.17.0.1" port="81" adjustHostHeader="false" />
@@ -40,7 +39,7 @@
                     <user username="john" password="password" email="john@predic8.de" />
                 </staticUserDataProvider>
                 <staticClientList>
-                    <client clientId="abc" clientSecret="def" callbackUrl="http://localhost:2001/oauth2callback" />
+                    <client clientId="abc" clientSecret="def" callbackUrl="https://playground.predic8.de/spielplatz/login" />
                 </staticClientList>
                 <bearerToken/>
                 <claims value="aud email iss sub username">
