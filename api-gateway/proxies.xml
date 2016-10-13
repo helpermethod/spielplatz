@@ -34,9 +34,9 @@
         </serviceProxy>
         <serviceProxy name="Authorization Server" port="80">
             <path>/auth</path>
-            <oauth2authserver location="../examples/oauth2/membrane/authorization_server/logindialog"
+            <oauth2authserver location="/app/membrane-service-proxy-4.2.2/examples/oauth2/membrane/authorization_server/logindialog"
                               issuer="https://playground.predic8.de/auth"
-                              consentFile="../examples/oauth2/membrane/authorization_server/consentFile.json">
+                              consentFile="/app/membrane-service-proxy-4.2.2/examples/oauth2/membrane/authorization_server/consentFile.json">
                 <staticUserDataProvider>
                     <user username="john" password="password" email="john@predic8.de" />
                 </staticUserDataProvider>
