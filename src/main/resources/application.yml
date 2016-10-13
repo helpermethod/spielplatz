@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://${DB_IP:localhost}:5432/spielplatz
+    username: spielplatz
+    password: spielplatz
+  jpa:
+    hibernate:
+      ddl-auto: update
+security:
+  oauth2:
+    client:
+      clientId: abc
+      clientSecret: def
+      accessTokenUri: https://playground.predic8.de/oauth2/token
+      userAuthorizationUri: https://playground.predic8.de/oauth2/auth
+#      tokenName: oauth_token
+#      authenticationScheme: query
+#      clientAuthenticationScheme: form
+    resource:
+      userInfoUri: https://playground.predic8.de/oauth2/userinfo
+server:
+  context-path: /spielplatz
