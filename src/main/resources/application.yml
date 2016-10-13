@@ -13,6 +13,7 @@ security:
       clientSecret: def
       accessTokenUri: https://playground.predic8.de/oauth2/token
       userAuthorizationUri: https://playground.predic8.de/oauth2/auth
+      scope: openid,profile
 #      tokenName: oauth_token
 #      authenticationScheme: query
 #      clientAuthenticationScheme: form
