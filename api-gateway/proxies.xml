@@ -32,6 +32,24 @@
             <path>/spielplatz</path>
             <target host="172.17.0.1" port="81" adjustHostHeader="false" />
         </serviceProxy>
+        <serviceProxy name="Authorization Server" port="80">
+            <path>/auth</path>
+            <oauth2authserver location="../examples/oauth2/membrane/authorization_server/logindialog"
+                              issuer="https://playground.predic8.de/auth"
+                              consentFile="../examples/oauth2/membrane/authorization_server/consentFile.json">
+                <staticUserDataProvider>
+                    <user username="john" password="password" email="john@predic8.de" />
+                </staticUserDataProvider>
+                <staticClientList>
+                    <client clientId="abc" clientSecret="def" callbackUrl="http://localhost:2001/oauth2callback" />
+                </staticClientList>
+                <bearerToken/>
+                <claims value="aud email iss sub username">
+                    <scope id="username" claims="username"/>
+                    <scope id="profile" claims="username email password"/>
+                </claims>
+            </oauth2authserver>
+        </serviceProxy>
         <serviceProxy port="80">
             <target host="172.17.0.1" port="82"/>
         </serviceProxy>
