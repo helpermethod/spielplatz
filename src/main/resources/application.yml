@@ -16,7 +16,7 @@ security:
       scope: openid,profile
 #      tokenName: oauth_token
 #      authenticationScheme: query
-#      clientAuthenticationScheme: form
+      clientAuthenticationScheme: form
     resource:
       userInfoUri: https://playground.predic8.de/oauth2/userinfo
 server:
